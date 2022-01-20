@@ -1,0 +1,19 @@
+vector<int> findPostorderTraversal(Node *root)
+	{
+		vector<int> ans;
+		Node *tree = root;
+		postOrder(tree, ans);
+		return ans;
+	}
+
+void postOrder(Node *root, vector<int> &arr)
+	{
+		if (root == nullptr)
+			return;
+		if (root->left)
+			postOrder(root->left, arr);
+		if (root->right)
+			postOrder(root->right, arr);
+		arr.push_back(root->data);
+		return;
+	}
