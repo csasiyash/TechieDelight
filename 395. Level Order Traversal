@@ -1,0 +1,29 @@
+vector<int> findLevelOrderTraversal(Node *root)
+	{
+		vector<int> ans;
+		queue<Node*> que;
+		Node *tree = nullptr;
+		if (root == nullptr)	//base case
+		{
+			return ans;
+		}
+
+		que.push(root);
+		while (!que.empty())
+		{
+			tree = que.front();
+			que.pop();
+			ans.push_back(tree->data);
+			if (tree->left)
+			{
+				que.push(tree->left);
+			}
+
+			if (tree->right)
+			{
+				que.push(tree->right);
+			}
+		}
+
+		return ans;
+	}
