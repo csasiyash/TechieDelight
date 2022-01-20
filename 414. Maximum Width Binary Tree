@@ -1,0 +1,25 @@
+int findMaximumWidth(Node *root)
+	{
+		if (root == nullptr) return 0;
+		int maximumWidth = 1;
+		queue<Node*> que;
+		Node *tree = root;
+		que.push(tree);
+
+		while (!que.empty())
+		{
+			int sizeOfLevel = que.size();
+			maximumWidth = max(maximumWidth, sizeOfLevel);
+			int i = 0;
+
+			while (++i <= sizeOfLevel)
+			{
+				tree = que.front();
+				que.pop();
+				if (tree->left) que.push(tree->left);
+				if (tree->right) que.push(tree->right);
+			}
+		}
+
+		return maximumWidth;
+	}
