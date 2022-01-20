@@ -1,0 +1,29 @@
+vector<int> findReverseLevelOrderTraversal(Node *root)
+	{
+		stack<int> st;
+		queue<Node*> que;
+		Node *tree = nullptr;
+		vector<int> ans;
+		if (root == nullptr)
+		{
+			return ans;
+		}
+
+		que.push(root);
+		while (!que.empty())
+		{
+			tree = que.front();
+			que.pop();
+			st.push(tree->data);
+			if (tree->right)
+				que.push(tree->right);
+			if (tree->left)
+				que.push(tree->left);
+		}
+
+		while (!st.empty())
+		{
+			ans.push_back(st.top());
+			st.pop();
+		}
+	}
