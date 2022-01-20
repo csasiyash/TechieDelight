@@ -1,0 +1,10 @@
+int findMaximumDepth(Node *root)
+	{
+		if (root == nullptr)
+			return 0;
+		if (root->left == nullptr)
+			return (1 + findMaximumDepth(root->right));
+		else if (root->right == nullptr)
+			return (1 + findMaximumDepth(root->left));
+		return min(1 + findMaximumDepth(root->left), 1 + findMaximumDepth(root->right));
+	}
