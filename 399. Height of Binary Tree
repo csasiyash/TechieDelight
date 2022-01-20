@@ -1,0 +1,5 @@
+int findHeight(Node *root)
+	{
+		if (root == nullptr) return 0;
+		return max(1 + findHeight(root->left), 1 + findHeight(root->right));
+	}
