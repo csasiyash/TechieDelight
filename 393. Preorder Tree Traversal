@@ -1,0 +1,19 @@
+vector<int> findPreorderTraversal(Node *root)
+	{
+		vector<int> ans;
+		Node *tree = root;
+		inOrder(tree, ans);
+		return ans;
+	}
+
+void inOrder(Node *root, vector<int> &arr)
+	{
+		if (root == nullptr)
+			return;
+		arr.push_back(root->data);
+		if (root->left)
+			inOrder(root->left, arr);
+		if (root->right)
+			inOrder(root->right, arr);
+		return;
+	}
