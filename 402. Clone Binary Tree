@@ -1,0 +1,9 @@
+Node* clone(Node *root)
+	{
+		if (root == nullptr) return nullptr;
+		Node *duplicate = new Node();
+		duplicate->data = root->data;
+		duplicate->left = clone(root->left);
+		duplicate->right = clone(root->right);
+		return duplicate;
+	}
